@@ -1,0 +1,5 @@
+{
+  "identifier": "principal",
+  "windows": ["main"],
+  "permissions": ["core:default", "clipboard-manager:allow-write-text", "dialog:allow-open"]
+}

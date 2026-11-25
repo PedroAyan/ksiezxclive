@@ -1,0 +1,5 @@
+[env]
+# O binário WebRTC para MSVC é pré-compilado com o CRT estático. Os
+# arquivos C/C++ das dependências precisam usar o mesmo runtime.
+CFLAGS_x86_64_pc_windows_msvc = "/MT"
+CXXFLAGS_x86_64_pc_windows_msvc = "/MT"

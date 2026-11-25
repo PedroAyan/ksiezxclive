@@ -1,0 +1,30 @@
+name: Compilar portátil para Windows
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: rustup update stable
+      - run: rustup default stable
+      - run: npm run desktop build -- --no-bundle --target x86_64-pc-windows-msvc
+      - run: Compress-Archive -LiteralPath src-tauri/target/x86_64-pc-windows-msvc/release/ksiezyclive.exe -DestinationPath ksiezyclive-windows-x64.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portatil-windows
+          path: ksiezyclive-windows-x64.zip
+          if-no-files-found: error

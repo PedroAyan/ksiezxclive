@@ -1,0 +1,32 @@
+{
+  "name": "ksiezyclive",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 1420 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "desktop": "tauri",
+    "servidor": "node --env-file-if-exists=.env server/index.ts"
+  },
+  "dependencies": {
+    "@fastify/static": "^8.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@tauri-apps/api": "^2.8.0",
+    "fastify": "^5.6.0",
+    "livekit-client": "^2.17.0",
+    "livekit-server-sdk": "^2.15.0",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.0",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0"
+  }
+}
